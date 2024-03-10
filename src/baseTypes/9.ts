@@ -7,13 +7,18 @@ type Page2 = {
   accounts: string[],
   status: string,
 }
-type Page1 = Page2 & {
-  details: {
+type Page1 = {
+    title: string,
+  likes: number,
+  accounts: string[],
+  status: string,
+  details?: {
     createAt: Date,
     updateAt: Date,
   }
 };
-const page1: Page1 = {
+type Page = Page1 & Page2;
+const page1: Page = {
   title: 'The awesome page',
   likes: 100,
   accounts: ['Max', 'Anton', 'Nikita'],
@@ -24,11 +29,11 @@ const page1: Page1 = {
   }
 }
 
-const page2:Page2 = {
+const page2:Page = {
   title: 'Python or Js',
   likes: 5,
   accounts: ['Alex'],
   status: 'close',
 }
-type Page1andPage2 = Page1 & Page2;
+
 export {};
